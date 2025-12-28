@@ -16,9 +16,14 @@ export const getAllVoices = async (): Promise<{ voices: Voice[] }> => {
   try {
     const elevenLabs = new ElevenLabsClient()
     if (!voicesState.voices.length) {
-      voicesState = await elevenLabs.voices.getAll({
-        timeoutInSeconds: 10000,
-      })
+      const response = await elevenLabs.voices.getAll()
+      // Map API Voice type (voiceId) to our Voice type (voice_id)
+      voicesState = {
+        voices: response.voices.map((voice) => ({
+          ...voice,
+          voice_id: voice.voiceId,
+        })),
+      }
     }
     return voicesState
   } catch (error) {
