@@ -1,4 +1,4 @@
-import { ElevenLabsClient } from 'elevenlabs'
+import { ElevenLabsClient } from '@elevenlabs/elevenlabs-js'
 
 type ElevenLabsTextToSpeechOptions = {
   voice_id: string

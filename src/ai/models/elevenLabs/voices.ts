@@ -4,7 +4,7 @@ export type Voice = {
   voice_id: string
 }
 
-import { ElevenLabsClient } from 'elevenlabs'
+import { ElevenLabsClient } from '@elevenlabs/elevenlabs-js'
 import * as process from 'node:process'
 
 let voicesState: { voices: Voice[] } = { voices: [] }
